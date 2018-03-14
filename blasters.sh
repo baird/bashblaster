@@ -9,3 +9,6 @@ netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
 
 # established connections only
 netstat -ntu | grep ESTAB | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr
+
+# connections per port
+netstat -tuna | awk -F':+| +' 'NR>2{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
