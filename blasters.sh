@@ -12,3 +12,6 @@ netstat -ntu | grep ESTAB | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | so
 
 # connections per port
 netstat -tuna | awk -F':+| +' 'NR>2{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+
+# ssh logs
+tail -500 /var/log/secure | grep 'sshd'
