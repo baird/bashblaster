@@ -1,4 +1,4 @@
-# Top 10 IP from apache log (historical)
+# Top 10 IP from apache log (historical) (/etc/httpd/apache/logs)
 awk '{ print $1}' access_log | sort | uniq -c | sort -nr | head -n 10
 
 # concurrent connections to apache
